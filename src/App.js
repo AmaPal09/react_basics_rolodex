@@ -20,8 +20,20 @@ class App extends Component {
           <p> 
             Hey {this.state.name}!
           </p>
-          <button onClick={() => {this.state.name = 'Amarja'; 
-                                  console.log(this.state);} }>
+          <button onClick={() => {
+            let obj1 = {pet: "dog"}; 
+            let obj2 = obj1; 
+            console.log(obj1 === obj2); 
+            obj1.pet = "cat"; 
+            console.log(obj1 === obj2); 
+            let obj3 = Object.assign({}, obj1); 
+            console.log(obj1 === obj3); 
+            console.log("obj1: ", obj1); 
+            console.log("obj2: ", obj2); 
+            console.log("obj3: ", obj3); 
+
+            this.setState({name: "Amarja"}); 
+            } }>
             Change name
           </button>
         </header>
