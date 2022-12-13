@@ -32,8 +32,14 @@ class App extends Component {
             console.log("obj1: ", obj1); 
             console.log("obj2: ", obj2); 
 
-            this.setState({name: {firstName: "Amarja", lastName: "Palekar"}}); 
-            console.log(this.state);
+            this.setState(() => {
+              return {
+                name: {firstName: 'Amarja', lastName: 'Palekar'}
+              };
+            }, () => {
+              console.log(this.state);
+            }); 
+            // console.log(this.state);
             } }>
             Change name
           </button>
