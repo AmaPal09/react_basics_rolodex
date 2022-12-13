@@ -20,7 +20,8 @@ class App extends Component {
           <p> 
             Hey {this.state.name}!
           </p>
-          <button>
+          <button onClick={() => {this.state.name = 'Amarja'; 
+                                  console.log(this.state);} }>
             Change name
           </button>
         </header>
