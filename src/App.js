@@ -18,7 +18,7 @@ class App extends Component {
           id: 2, 
         }, 
         {
-          name: "M3", 
+          name: "X3", 
           id: 3, 
         }, 
         {
