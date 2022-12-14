@@ -8,14 +8,22 @@ class App extends Component {
     super(); 
 
     this.state = {
-      name: {firstName: 'Gaurav', lastName: 'Bathe'}, 
-      company: 'Cadence'
+      monsters : [
+        {name: "M1"}, 
+        {name: "M2"}, 
+        {name: "M3"}, 
+        {name: "M4"}, 
+      ],
     }
   }
 
   render() {
     return (
       <div className="App"> 
+        {this.state.monsters.map((monster) => {
+            return <h1>{monster.name}</h1>; 
+          })
+        } 
       </div>
     ); 
   }
