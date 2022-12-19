@@ -12,17 +12,18 @@ class App extends Component {
       searchField : '', 
     }
 
-    console.log("constructor");
+    // console.log("constructor");
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
+    // console.log("componentDidMount");
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then((users) => this.setState( () => {
         return {monsters: users}
       }, 
-      () => {console.log(this.state)})); 
+      // () => {console.log(this.state)}
+      )); 
   } 
 
   onSearchChange = (event) => {
@@ -37,7 +38,7 @@ class App extends Component {
     const {monsters, searchField} = this.state;
     const { onSearchChange } = this; 
 
-    console.log("render");
+    // console.log("render");
     const filteredMonsters = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField); 
     }); 
@@ -55,7 +56,7 @@ class App extends Component {
             return <h1 key={monster.id}>{monster.name}</h1>; 
           })
         }  */}
-        <CardList /> 
+        <CardList monsters = {filteredMonsters} /> 
       </div>
     ); 
   }
