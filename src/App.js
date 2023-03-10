@@ -1,4 +1,3 @@
-// import { Component } from 'react'; 
 import { useState } from 'react';
 
 import CardList from './components/card-list/card-list.component.jsx'; 
@@ -13,9 +12,6 @@ const App = () => {
     const onSearchChange = (event) => {
         const searchFielString = event.target.value.toLocaleLowerCase(); 
         setSearchField(searchFielString); 
-        // this.setState(() => {
-        //     return {searchField}; 
-        // }); 
     }
 
     return (
