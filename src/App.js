@@ -8,11 +8,24 @@ const App = () => {
 
     const [searchField, setSearchField] = useState(''); //[value, setValue_function]
     const [monsters, setMonsters] = useState([]);//[value, setValue_function]
+    const [filteredMonsters, setFilteredMonsters] = useState(monsters); 
     console.log('render');
 
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then((users) => setMonsters(users));
+    useEffect(()=> {
+        console.log("Effect fired in here");
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then((users) => setMonsters(users));
+    }, []); 
+
+    useEffect(()=> {
+        const newFilteredMonsters = monsters.filter((monster) => {
+            return monster.name.toLocaleLowerCase().includes(searchField);
+          });
+        
+        setFilteredMonsters(newFilteredMonsters); 
+
+    }, [monsters, searchField]);
 
 
     const onSearchChange = (event) => {
@@ -20,9 +33,7 @@ const App = () => {
         setSearchField(searchFieldString);
     }
 
-    const filteredMonsters = monsters.filter((monster) => {
-      return monster.name.toLocaleLowerCase().includes(searchField);
-    });
+    
 
     return (
         <div className="App">
