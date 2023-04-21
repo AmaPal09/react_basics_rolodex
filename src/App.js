@@ -9,7 +9,8 @@ const App = () => {
     const [searchField, setSearchField] = useState(''); //[value, setValue_function]
     const [monsters, setMonsters] = useState([]);//[value, setValue_function]
     const [filteredMonsters, setFilteredMonsters] = useState(monsters); 
-    console.log('render');
+    const [title, setTitle] = useState("");
+    console.log('rendered');
 
     useEffect(()=> {
         console.log("Effect fired in here");
@@ -33,15 +34,27 @@ const App = () => {
         setSearchField(searchFieldString);
     }
 
+    const onTitleChange = (event) => {
+        const newTitle = event.target.value.toLocaleLowerCase();
+        setTitle(newTitle);
+    }
     
 
     return (
         <div className="App">
-          <h1 className="app-title">Monsters Rolodex</h1>
+          {/* <h1 className="app-title">Monsters Rolodex</h1> */}
+          <h1 className="app-title">{title}</h1>
           <SearchBox
             className="monsters-search-box"
             placeholder="search-monster"
             onChangeHandler={onSearchChange}
+          />
+
+          <br /> 
+          <SearchBox
+            className="title-search-box"
+            placeholder="set title"
+            onChangeHandler={onTitleChange}
           />
 
           <CardList monsters = {filteredMonsters} />
